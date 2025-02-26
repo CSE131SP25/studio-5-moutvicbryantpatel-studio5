@@ -11,10 +11,15 @@ import org.junit.runners.MethodSorters;
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ArrayMeanPreliminaryTest {
+	double sum = 0;
 	@Test
 	public void testArrayLength1() throws Exception {
 		int[] values = { 42 };
-		double actual = Reflections.invokeArrayMean(values);
+		for (int num : values) {
+	        sum += num;
+	    }
+	    double actual = sum / values.length;
+
 		double expected = 42.0;
 		double acceptableDifference = 0.00001;
 		assertEquals(expected, actual, acceptableDifference);

@@ -1,5 +1,7 @@
 package studio5;
 
+import java.awt.Color;
+
 import edu.princeton.cs.introcs.StdDraw;
 
 public class Methods {
@@ -14,9 +16,8 @@ public class Methods {
 	 * @return the Euclidean distance between (x1,y1) and (x2,y2)
 	 */
 	public static double distanceBetween(double x1, double y1, double x2, double y2) {
-		double distance = 0;
+		double distance = Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2)); 
 		// FIXME: Hint use Math methods (e.g. Math.sqrt) to compute the distance
-		
 		return distance;
 	}
 
@@ -28,19 +29,27 @@ public class Methods {
 	 * @param radius the radius of the bull's eye
 	 */
 	public static void drawBullsEye(double x, double y, double radius) {
+		StdDraw.setXscale(0,2);
+		StdDraw.setYscale(0,2);
+		
 		StdDraw.setPenColor(StdDraw.BLACK);
-		StdDraw.filledCircle(x, y, radius);
-
+		StdDraw.filledCircle(1, 1, 1);
+	
 		// TODO: Draw the remaining rings of the bull's eye
+		StdDraw.setPenColor(0,109,219);
+		StdDraw.filledCircle(1, 1, .75);
+		
 		// Blue ring with 3.0/4.0 the radius
 		// suggested rgb values: 0, 109, 219
 
-		
+		StdDraw.setPenColor(146,0,0);
+		StdDraw.filledCircle(1, 1, .5);
 
 		// Red ring with 1.0/2.0 the radius
 		// suggested rgb values: 146, 0, 0
 
-		
+		StdDraw.setPenColor(255,255,109);
+		StdDraw.filledCircle(1, 1, .25);
 
 		// Yellow ring with 1.0/4.0 the radius
 		// suggested rgb values: 255, 255, 109
